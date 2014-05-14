@@ -1,0 +1,234 @@
+---
+title: 'Standardizing Flow Cytometry Immunophenotyping<img class="mylogo" src="resources/Logo_BLUE_BLACK.png"
+  width="200">'
+author: "Greg Finak, PhD<br>Staff Scientist<br>Vaccine and Infectious Disease Division<br>Fred Hutchinson Cancer Research Center"
+date: "Cyto 2014 - May 21"
+output:
+  ioslides_presentation:
+    pandoc_args: [ "-c","mystyles.css" ]
+    widescreen: yes
+    self_contained: true
+subtitle: Automated Gating Recapitulates Central Manual Analysis with Low Variability
+---
+
+## Why standardize?
+Extremely important for clinical trials.
+
+* We want reproducibile results.
+* We want to be able to compare data generated from different sites.
+    * maybe even from different trials.
+* Reduce biases from manual analysis.
+* Decrease variability and improve statsitical power to detect biological differences (*ultimately lower costs*).
+
+**Must ensure we are measuring biological signals, not technical noise.**
+
+> The accurate measurement of variations in the human immune system requires precise and standardized assays to distinguish true biological changes from technical artefacts .. Flow cytometry .. remains highly variable with regard to sample handling, reagents, instrument setup and data analysis. 
+
+<cite>- Maecker *et al.*, *Nature Reviews Immunology (March 2012)*</cite>
+
+## Many Variables in the Flow Cytometry Workflow
+<img class="figure" src="resources/variables_workflow.png" width="900">
+
+Standardizing reagents, SOPs, and analysis = comparable data? 
+
+<reference>Holden T. Maecker, J. Philip McCoy & Robert Nussenblatt, *Nature Reviews Immunology 12, 191-200 (March 2012)*</reference>
+
+<slidethanks>Phil McCoy</slidethanks>
+
+## Lyoplates Built to Standardize Reagents and Handling
+A consortium of academic and industry groups interested in standardizing immunophenotyping of human samples.
+
+<emph>Standardized Lyoplate Staining Panels Developed at FITMaN Conference, Feb 2012</emph>
+
+<img class="figure" src="resources/LyoplatePanels.png" width=700>
+
+<reference>Holden T. Maecker, J. Philip McCoy & Robert Nussenblatt, *Nature Reviews Immunology 12, 191-200 (March 2012)*</reference>
+
+
+## SOP's Improved over Multiple Iterations {.smaller}
+<emph2>Lyoplate 1.0</emph2>  
+
+* 9 participating sites. 2 aliquots of 3 biological samples of cryopreserved cells run a total of six times at each site.
+    * Inconsitencies in cryopreservation across sites introduced too much noise.
+    * Highlighted need for harmonizing cryopreservation/thawing among sites for comparing clinical trial data.
+    
+<emph2>Lyoplate 2.0</emph2>   
+
+* 9 sites, 4 samples of Cytotrol control cells.
+    * Data gated centrally using a "consensus" gating strategy.
+    * Two panels submitted to FlowCAP III workshop as a challenge.
+        * Some automated gating approaches performed well, but highlighted some poorly resolved markers and problems with SOPs.
+
+## Lyoplates 3.0 - Standardizing and Automating Data Analysis
+
+Lyoplate 1.0 - 2.0 - **centralized analysis substantially reduced variability** compared to center-specific gating.
+
+<img class="figure" src="resources/CytotrolComparison_LocalCentralGating.png" width=700>
+
+- Central analysis not feasible as a systematic approach for large multi-center trials.
+
+**Lyoplate 3.0**
+
+* <emph2>Can automated data analysis compete favorably?</emph2>  
+
+## Lyoplate 3.0 - Study Design {.smaller}  
+
+|Panels| Replicates| Biological Samples| Centers|Total FCS Files|Gating Methods|
+|:------:|:-----------:|:-----------------:|:--------:|:---------:|:------|
+|<font font-weight="bold">B-cell<br>T-cell<br>T-reg<br>DC/Mono/NK<br>T-helper  |3          |3 Samples of<br>SeraCare Cells  </font>               |9       |$5\times3\times3\times9=405$      |Central manual vs.<br>automated|
+
+Each panel gated centrally via a consensus gating strategy.  
+Automated pipelines devised to <emph>mimic</emph> the consensus strategy <emph>blinded to the manual results</emph>.
+
+<hr>
+<h3> Comparison of Gating Methods </h3>
+Decompose the variability due to <emph>center</emph>, <emph>biological sample</emph> and <emph>residual technical variability</emph>. 
+
+<p style="text-align:center; color:black;">
+$p_{rij} = \mu + Sample_i + Center_j + \epsilon_{rij}$
+</p>
+<p style="text-align:center; color:black;">
+ $Center_{j} \sim N(0, \sigma^2_{center}),Sample_{i} \sim N(0, \sigma^2_{sample}), \epsilon_{rij} \sim N(0, \sigma^2_{r})$
+</p>
+
+$\sigma^2_{sample}$ and $\sigma^2_{center}$ correspond to <emph>components of variance</emph>. Fixed effects: evaluate bias.
+
+<h4><emph>Define success:<emph></h4>
+Automated gating <emph>comparable</emph> to manual analysis. (low bias, similar variability)      
+Ideally <emph>biological variability &#62; center variability.</emph>
+
+## Let's Consider the B-cell Panel 
+<div style="position:relative">
+<img class="figureleft" src="resources/Manual_B_cell_Site_D.png" width=700><br>
+<div style="font-weight:bold;position:absolute; top:0px; left:0px;">Central Manual Gating</div>
+<div style="line-height:125%;position:absolute;top:100px;right:0px;width:25%;">
+Lymphocytes<br>
+Singlets<br>
+Live Cells<br>
+CD19+&CD20-<br>
+Plasmablasts<br>
+CD19+&CD20+<br>
+Transitional B-cells<br>
+Memory IgD+<br>
+Memory IgD-<br>
+Naive<br>
+
+</div>
+</div>
+
+
+## Variability of automated gating is comparable to central manual gating
+<div style="position:relative;top:-30px;">
+<img class="figure" src="resources/VarComp_Bcells_final.png" width=800>
+<div style="position:absolute;height:4%;bottom:0px;left:10%;">
+&#8226; Biological sample variability $\gt$ center-to-center variability<br>
+&#8226; Automated methods compare favorably to manual<br>
+&#8226; Improvement in Plasmablasts<br>
+&#8226; Discrepancy in IgD+ Memory<br>
+</div>
+<div>
+
+## Automated methods are largely unbiased
+<div style="position:relative;top:-30px">
+<img class="figureleft" src="resources/bias_bcells_final.png" height=500>
+<div style="line-height:125%;position:absolute;top:20px;right:0px;width:40%;">
+&#8226; Variability overall is very low<br><br>
+&#8226; Estimates are consistent within-samples across different methods.
+<br>
+<br>
+&#8226; Memory IgD+ is low frequency &#8658; higher variability.
+<br><br>
+&#8226; Plasmablasts slightly biased but lower within-sample variability.
+</div>
+</div>
+
+## Parent of Plasmablasts (NOT CD20) was incorrectly gated in manual analysis
+<div style="position:relative;top:-30px;width:100%;">
+<div style="width:70%; left:0px; float:left">
+<img class="figureleft" src="resources/Yale_plasmablast_outliers_Supp_Fig.png" width=100%;><br>
+</div>
+
+<div style="position:relative;float:right;width:25%;top:30px;height:250px;">
+Manual Gating<br>
+<font style="font-size:80%">CD20+ cells included in NOT CD20 gate.</font>
+</div>
+
+<div style="position:relative;top:30px;float:right;width:25%;height:500px">
+Automated Gating<br>
+<font style="font-size:80%">Based on data distribution.</font>
+</div>
+</div>
+
+## Automated / centralized gating significantly improves ability to detect biological differences.
+
+<div style="position:relative; top:-20px;">
+<img class="figureleft" src="resources/power_analysis/power_Bcells.png" height=375>
+<div style="font-size:100%;line-height:150%;width:28%;position:absolute;top:15%;right:0px">
+&#8226; Centralizing gating increases power.<br>
+&#8226; Center-to-center effects have minimal impact.<br>
+&#8226; Sample sizes $\gt 25-30$ suggested per group.
+</div>
+</div>
+
+* Variance component estimates taken from the observed data.
+
+## Similarly successful results for 4 / 5 panels
+
+Similar results for: 
+
+* T-cell  
+* DC/Mono/NK  
+* T-regulatory cells  
+
+One exception: **T-helper panel**.
+
+* Center-to-center variability  was much larger than sample-to-sample variability (all methods).  
+* Poorly resolved cell populations.
+* No power to detect biological differences.
+
+<emph>Automated gating algorithms will not fix poor quality data.</emph>
+
+## Summary
+* Automated gating can supplant a careful central manual analysis.
+    * Save time
+    * Objective and data-driven gates
+    * Reproducible results
+    <br><br>
+* <emph>Comparable cross-site data</emph> requires standardization of the <emph>full FCM workflow</emph>.
+     * Important to <emph>follow SOPs</emph>. 
+     * <emph>Automated methods can't fix poor quality data</emph>.
+<br><br>
+
+Currently working to make reproducible and reusable code and data available to the community.<br>
+
+## Acknowledgements {.columns-2}
+<emph>Gating and Data Analysis</emph>  
+Jacob Frelinger  (FHCRC)  
+Mike Jiang  (FHCRC)  
+John Ramey  (FHCRC)  
+Mehrnoush Malekesmaeili (BCCRA)  
+Rick Stanton  (JCVI)  
+Max Qian  (JCVI)  
+
+<emph>FlowCAP Consortium</emph>   
+Richard Scheuermann  (JCVI)
+Ryan Brinkman (BCCRA)   
+Raphael Gottardo  (FHCRC)  
+
+<emph>FCE/HIPC test centers</emph>  
+Frank Nestle, Susanne Heck (BRC-Guys)  
+Elaine Reed, Yael Korin (UCLA)  
+Bonnie Blomberg (Miami)  
+Florian Kern, Martha Bajwa (Brighton)  
+Karolina Palucka, Gerlinde Obermoser (Baylor)  
+David Hafler, Leslie Devine, Ruth Montgomery (Yale)  
+Holden Maecker, Meena Malipatlolla (Stanford)  
+John Todd, Linda Wicker, Marcin Pekalski (Cambridge)  
+Phil McCoy, Marc Langweiler (CHI/NIH)  
+
+<emph>FITMan meeting</emph>  
+Bob Nussenblatt (CHI/NIH)  
+
+<emph>Corporate partners</emph>  
+Maria Jaimes, Amitabh Gaur (BD)  
+Enrique Rabellino (Beckman)  
