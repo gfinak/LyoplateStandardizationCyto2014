@@ -99,7 +99,7 @@ Ideally <emph>biological variability &#62; center variability.</emph>
 
 ## Let's Consider the B-cell Panel 
 <div style="position:relative">
-<img class="figureleft" src="resources/Manual_Bcell_Site_D.png" width=700><br>
+<img class="figureleft" src="resources/ManualBcellSiteD.png" width=700><br>
 <div style="font-weight:bold;position:absolute; top:0px; left:0px;">Central Manual Gating</div>
 <div style="line-height:125%;position:absolute;top:100px;right:0px;width:25%;">
 Lymphocytes<br>
