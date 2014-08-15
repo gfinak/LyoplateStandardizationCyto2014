@@ -1,4 +1,4 @@
-Presentation_Cyto_2014
+Lyoplate Data Standardization
 ======================
 
 Presentation on the Lyoplate Gating Standardization Project
